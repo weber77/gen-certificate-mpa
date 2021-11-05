@@ -2,8 +2,6 @@ const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 // var redHatBold = new FontFace('RedHatDisplay', 'url(./RedHatDisplay-Bold.ttf)');
 
-const downloadBtn = document.getElementById('download-btn')
-
 let description = " desctiption of course Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
 let names = "Weber Xxxxx Xxxxxxxxxx Dubois"
 let course_name = "NFT Minting"
