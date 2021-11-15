@@ -4,10 +4,12 @@ from datetime import datetime
 
 from PIL import ImageFont, ImageDraw, Image
 
-regular_fontpath = "./Red_Hat_Display/static/RedHatDisplay-regular.ttf"
-bold_fontpath = "./Red_Hat_Display/static/RedHatDisplay-Bold.ttf"
-semi_bold_fontpath = "./Red_Hat_Display/static/RedHatDisplay-SemiBold.ttf"
+absPath = "/Users/user/Documents/Work/Internship/MinorityProgrammer/NFT minting/Server/py/Red_Hat_Display/static"
+regular_fontpath = absPath + "/RedHatDisplay-regular.ttf"
+bold_fontpath = absPath + "/RedHatDisplay-Bold.ttf"
+semi_bold_fontpath = absPath + "/RedHatDisplay-SemiBold.ttf"
 
+# fontRegular = ImageFont.load_default()
 fontRegular = ImageFont.truetype(regular_fontpath, 50)
 fontBold = ImageFont.truetype(bold_fontpath, 80)
 fontSemiBold = ImageFont.truetype(semi_bold_fontpath, 80)
@@ -66,24 +68,29 @@ if __name__ == "__main__":
     name = ""
     course_name = ""
     course_number = ""
+    course_name_number = ""
 
-    # try:
-    #     description = sys.argv[1]
-    #     name = sys.argv[2]
-    #     course_name = sys.argv[3]
-    #     course_number = sys.argv[4]
-    # except:
-    #     print("Less than 4 args provided")
-    #     exit()
+    try:
+        description = sys.argv[1]
+        name = sys.argv[2]
+        course_name = sys.argv[3]
+        course_number = sys.argv[4]
+        course_name_number = course_name + " " + course_number
 
-    description = " desctiption of course Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
-    name = "Weber Xxxxx Xxxxxxxxxx Dubois"
-    course_name = "NFT Minting"
-    course_number = "101"
-    course_name_number = course_name + " " + course_number
+    except:
+        print("Less than 4 args provided")
+        exit()
 
-    image = Image.open("certificate.png")
+    # description = " desctiption of course Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+    # name = "Weber Xxxxx Xxxxxxxxxx Dubois"
+    # course_name = "NFT Minting"
+    # course_number = "101"
+    # course_name_number = course_name + " " + course_number
+
+    image = Image.open(
+        "/Users/user/Documents/Work/Internship/MinorityProgrammer/NFT minting/Server/py/certificate.png"
+    )
     draw = ImageDraw.Draw(image)
 
     put_text(draw, name, course_name, description, course_name_number)
-    image.save(name + ".png")
+    image.save(name.replace(" ", "_") + ".png")
